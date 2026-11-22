@@ -1,0 +1,11 @@
+Retrieval-Augmented Generation (RAG) combines information retrieval with language model generation. A RAG application first searches a knowledge source for relevant passages, then supplies those passages to a language model so the response can be grounded in retrieved information.
+
+Dense retrieval represents text as numerical embeddings. It can identify passages that are conceptually related even when the query and passage use different words. Sparse retrieval uses lexical signals such as term frequency and inverse document frequency. It is useful when exact terms, identifiers, or phrases matter.
+
+Hybrid retrieval combines dense and sparse search. Reciprocal Rank Fusion is a rank-based method for combining multiple result lists. It rewards documents that appear near the top of several lists and does not require the scores from different retrieval systems to share the same scale.
+
+A parent-child retrieval design stores larger parent passages and indexes smaller child passages. Search operates over child passages because smaller units can be more precise. When a child passage matches, the application follows its parent identifier and supplies the larger parent passage as context. This provides focused matching while preserving surrounding information.
+
+Reranking is a second-stage retrieval operation. A first-stage retriever gathers a candidate set efficiently. A reranker then evaluates candidate relevance against the original query and orders the candidates. The application can retain only the strongest results to reduce irrelevant context sent to the language model.
+
+Semantic memory stores useful facts about a user, such as preferred programming languages or response style. The memory should be associated with a stable user identifier rather than only a single chat session. This allows an application to retrieve preferences in later sessions and adapt its responses.

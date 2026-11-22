@@ -13,3 +13,6 @@ dist/
 build/
 *.egg-info/
 *.zip
+data/parent_documents.json
+data/child_chunks.json
+data/*.tmp
