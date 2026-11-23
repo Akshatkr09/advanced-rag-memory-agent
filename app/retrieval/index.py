@@ -1,6 +1,6 @@
 """Build/update the local or remote Qdrant child-chunk index.
 
-Run after ingestion:
+git commit -m "M4: Add Cohere reranking and context compression"Run after ingestion:
     python -m app.ingestion.ingest
     python -m app.retrieval.index
 """
