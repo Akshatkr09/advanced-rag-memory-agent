@@ -8,3 +8,6 @@ data/parent_documents.json
 data/child_chunks.json
 data/qdrant/
 *.log
+
+data/mem0_history.db
+data/mem0_qdrant/
