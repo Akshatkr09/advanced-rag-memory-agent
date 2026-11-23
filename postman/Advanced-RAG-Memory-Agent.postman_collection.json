@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "a6c9c9b4-5f11-4b18-9df1-advanced-rag-memory",
+    "name": "Advanced RAG Memory Agent",
+    "description": "Health, chat, and semantic-memory API requests."
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      }
+    },
+    {
+      "name": "Chat - store preference",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Hello! I work in Python and prefer brief, code-only responses.\",\n  \"user_id\": \"{{user_id}}\",\n  \"session_id\": \"{{session_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/api/chat"
+      }
+    },
+    {
+      "name": "Get user memories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/users/{{user_id}}/memories"
+      }
+    },
+    {
+      "name": "Chat - verify cross-session preference",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Write a quick merge sort routine.\",\n  \"user_id\": \"{{user_id}}\",\n  \"session_id\": \"session_2\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/api/chat"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "user_id",
+      "value": "usr_99"
+    },
+    {
+      "key": "session_id",
+      "value": "session_1"
+    }
+  ]
+}
